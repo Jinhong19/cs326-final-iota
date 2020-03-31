@@ -13,3 +13,4 @@ The idea of our application Liner generally revolves around the idea of efficien
 There are similar applications out there such as Grubhub and other delivery services, but they mainly target restaurants. Our app on the other hand targets “fast-food” places, such as McDonalds, Baby berk, and other similarly established venues.
 
 # Important Components
+A user interface for customers to search restaurants, view menus, and place orders. A user interface for restaurants to sign up/log in, upload menus, view orders, and notify the software when an order is ready. A database that stores information of restaurants, customers, menus and orders. A backend in node.js that handles authentication and performs CRUD operations on the database based on requests from the frontend.
