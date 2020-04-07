@@ -2,7 +2,7 @@
   margin-top: 10%;
 }
 
-.place-order-container {
+.place-order-container, .incoming-order-container {
   margin-top: 2%
 }
 
@@ -10,12 +10,13 @@
   text-align: center;
 }
 
+/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .sign-in-container {
     width: 500px;
   }
 
-  .place-order-container{
-    width: 800px;
+  .place-order-container, .incoming-order-container{
+    width: 60%;
   }
 }
