@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Place an order</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="place-order-container container border p-sm-4">
+      <div class="search-div">
+        <div class="form-group">
+          <label class="h3" for="inputSearchRestaurant"
+            >Search for restaurant</label
+          >
+          <input type="email" class="form-control" id="inputSearchRestaurant" />
+        </div>
+      </div>
+      <div class="menu-div">
+        <p class="menu-title h3">Menu</p>
+        <div class="menu-items-container container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 30%;">Quantity</th>
+                <th scope="col" style="width: 60%;">Name</th>
+                <th scope="col" style="width: 10%;">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="counter-input input-group">
+                    <div class="input-group-prepend">
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        -
+                      </button>
+                    </div>
+                    <input
+                      type="number"
+                      class="w-25 p-0 text-center border border-secondary"
+                      placeholder="0"
+                      readonly
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td>food item with long long long long name</td>
+                <td>35</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="counter-input input-group">
+                    <div class="input-group-prepend">
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        -
+                      </button>
+                    </div>
+                    <input
+                      type="number"
+                      class="w-25 p-0 text-center border border-secondary"
+                      placeholder="0"
+                      readonly
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="btn btn-outline-secondary btn-sm"
+                        type="button"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td>food</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

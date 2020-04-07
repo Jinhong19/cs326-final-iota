@@ -2,8 +2,20 @@
   margin-top: 10%;
 }
 
+.place-order-container {
+  margin-top: 2%
+}
+
+.menu-items-container th:nth-child(3), td:nth-child(3) {
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .sign-in-container {
     width: 500px;
+  }
+
+  .place-order-container{
+    width: 800px;
   }
 }
