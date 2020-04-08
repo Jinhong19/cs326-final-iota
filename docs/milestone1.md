@@ -30,19 +30,29 @@ Users: users created in the login page(sign up). Fields:
 - password
 
 # User Interface
-Sign In Page  
+## Sign In  
 ![sign in wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/sign_In_wireframe.PNG)  
 ![sign in code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/sign_in_screenshot.png)  
 
-sign up page  
+## Sign Up  
+![sign up wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/sign_up_wireframe.PNG)  
+![sign up code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/Sign_Up_Screenshot.PNG)
 
-place order page  
+## Place Order  
+![place order wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/place_order_wireframe.PNG)  
+![place order code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/place_order_screenshot.png)
 
-checkout page  
+## Checkout  
+![checkout wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/checkout_wireframe.png)  
+![checkout code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/Checkout_screenshot.PNG)
 
-confirm page  
+## Confirm  
+![confirm wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/confirm_page_wireframe.png)  
+![confirm code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/confirm_page_screenshot.png)
 
-incoming order page
+## Incoming Order
+![incoming order wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/incoming_order_wireframe.png)  
+![incoming order code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/incoming_order_screenshot.png)
 
 # Breakdown of the Division of Labor
 Jinhong Gan - data model and interactions, wireframes for checkout page and incoming order page, and HTML/CSS/Bootstrap for login page, place order page, and incoming order page.  
