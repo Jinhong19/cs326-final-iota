@@ -29,5 +29,22 @@ Users: users created in the login page(sign up). Fields:
 - phone number
 - password
 
+# User Interface
+Sign In Page  
+![sign in wireframe](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/sign_In_wireframe.PNG)  
+![sign in code](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/sign_in_screenshot.png)  
+
+sign up page  
+
+place order page  
+
+checkout page  
+
+confirm page  
+
+incoming order page
+
+# Breakdown of the Division of Labor
+Jinhong Gan - data model and interactions, wireframes for checkout page and incoming order page, and HTML/CSS/Bootstrap for login page, place order page, and incoming order page.  
 
 Note: Due to an username error, (DonnyWu) was not able to commit under my username. The commits I've made were the "Sign-up.html" and the "checkout.html". Also for the images I've done "Checkout_screenshot.PNG" and "Sign_Up_Screenshot.PNG".
