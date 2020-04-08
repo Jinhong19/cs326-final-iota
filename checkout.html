@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>checkout</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+  </head>
+
+  <body class>
+    <br>
+    <br>
+  
+  
+    <div class= "text-center"><h1>checkout</h1></div>
+
+    <div class="container">  
+      <br>
+      <br>
+    
+      <div class><h3>Card Information</h3></div>
+
+      <div class= "row">
+        <div class="col-md-6 mb-3">
+          <input type="text" class="form-control"  id="fName" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class= "row">
+        <div class="col-md-4 mb-3">
+          <input type="text" class="form-control" size="30"  id="ccn" placeholder="Card Number" required>
+          <div class="invalid-feedback">
+            Valid Card is required.
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <input type="text" class="form-control" size="30" id="expDate" placeholder="Expiration Date" required>
+          <div class="invalid-feedback">
+            Valid Expiration date is required.
+          </div>
+        </div>
+
+          <div class="col-md-4 mb-3">
+            <input type="text" class="form-control" size= "30" id="lName" placeholder="CV" required>
+            <div class="invalid-feedback">
+              Valid CV is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control">
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>Paypal</option>
+          </select>
+        </div>
+      </div>  
+    </div>
+
+    
+    <div class = "container">
+    <div class><h3>Billing Address</h3></div>
+      
+    <div class= "row">
+        <div class="col-md-7 mb-3">
+          <input type="text" class="form-control" size="30"  id="ccn" placeholder="Address" required>
+          <div class="invalid-feedback">
+            Valid Address is required.
+          </div>
+        </div>
+
+        <div class="col-md-5 mb-3">
+          <input type="text" class="form-control" size="30" id="expDate" placeholder="City" required>
+          <div class="invalid-feedback">
+            Valid City is required.
+          </div>
+        </div>
+
+      </div>
+    
+      <div class= "row">
+        <div class="form-group col-md-4 mb-3">
+          <select class="form-control" id="sel1">
+            <option>United States</option>
+            <option>x</option>
+            <option>x</option>
+            <option>x</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4 mb-3">
+          <select class="form-control" id="sel1">
+            <option>Massachusetts</option>
+            <option>x</option>
+            <option>x</option>
+            <option>x</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4 mb-3">
+          <input type="text" class="form-control" id="expDate" placeholder="Zip Code" required>
+          <div class="invalid-feedback">
+          valid Zip Code is required.
+          </div>
+        </div>
+      </div>
+
+      <button type = "button" class= "btn btn-primary" >checkout</button>
+
+    </div>
+
+    
+
+  </body>
+
+</html>
