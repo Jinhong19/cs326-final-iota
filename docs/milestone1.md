@@ -28,3 +28,6 @@ Users: users created in the login page(sign up). Fields:
 - email address
 - phone number
 - password
+
+
+Note: Due to an username error, (DonnyWu) was not able to commit under my username. The commits I've made were the "Sign-up.html" and the "checkout.html". Also for the images I've "Checkout_screenshot.PNG" and "Sign_Up_Screenshot.PNG".
