@@ -57,6 +57,8 @@ Users: users created in the login page(sign up). Fields:
 # Breakdown of the Division of Labor
 Jinhong Gan - data model and interactions, wireframes for checkout page and incoming order page, and HTML/CSS/Bootstrap for login page, place order page, and incoming order page.
 
-Rudra Guin - wireframes for confirm page and sign up page, and HTML/CSS/Bootstrap for confirm page; also committed to screenshots for the milestone1.md file.
+Rudra Guin - wireframes for confirm page and sign up page, and HTML/CSS/Bootstrap for confirm page; also committed to screenshots for the milestone1.md file.  
+
+Dongwei Wu - Did Wireframe for log-in page and order-placing page. created the "Sign-up.html" and the "checkout.html" which includes HTML/CSS/Bootstrap.
 
 Note: Due to an username error, (DonnyWu) was not able to commit under my username. The commits I've made were the "Sign-up.html" and the "checkout.html". Also for the images I've done "Checkout_screenshot.PNG" and "Sign_Up_Screenshot.PNG".
