@@ -16,7 +16,7 @@ export class Server {
         this.server.use(express.json())
 
         // Serve static pages from a particular path.
-        this.server.use("/", express.static("./public"))
+        this.server.use("/", express.static("./pages"))
 
         // Set up routers
         this.server.use("/restaurants", this.restaurantsRouter)
