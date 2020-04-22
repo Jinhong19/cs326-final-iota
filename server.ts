@@ -6,7 +6,6 @@ export class Server {
 
     // require routers
     private restaurantsRouter = require("./routes/restaurants")
-    private menusRouter = require("./routes/menus")
     private ordersRouter = require("./routes/orders")
 
     constructor() {
@@ -20,7 +19,6 @@ export class Server {
 
         // Set up routers
         this.server.use("/restaurants", this.restaurantsRouter)
-        this.server.use("/menus", this.menusRouter)
         this.server.use("/orders", this.ordersRouter)
     }
     public listen(port): void {
