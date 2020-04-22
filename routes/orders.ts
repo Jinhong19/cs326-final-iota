@@ -10,6 +10,7 @@ async function createHandler(req, res): Promise<void> {
     let output = {
         result: "success",
     }
+    output = Object.assign(output, req.body)
     res.write(JSON.stringify(output))
     res.end()
 }
