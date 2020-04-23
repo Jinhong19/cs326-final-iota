@@ -21,21 +21,35 @@ async function readHandler(req, res): Promise<void> {
 }
 
 async function readOrder(restaurantId: string, res): Promise<void> {
-    // should get this from database later
-    let orderContent = [
+    // should get this from database later, mock content for all restaurantId
+    let orders = [
         {
-            name: "pizza",
-            price: 3.55,
-            quantity: 2,
+            callNumber: 1,
+            content: [
+                {
+                    name: "Pizza",
+                    price: 3.55,
+                    quantity: 2,
+                },
+                { name: "Ice cream", price: 33.1213, quantity: 1 },
+            ],
+        },
+        {
+            callNumber: 22,
+            content: [
+                {
+                    name: "Cookie",
+                    price: 1.34,
+                    quantity: 3,
+                },
+                { name: "Apple", price: 0.12, quantity: 1 },
+            ],
         },
     ]
-    // should generate this automatically
-    let callnumber = 12
     let output = {
         result: "success",
         restaurantId: restaurantId,
-        callnumber: callnumber,
-        content: orderContent,
+        orders: orders,
     }
     res.write(JSON.stringify(output))
     res.end()
