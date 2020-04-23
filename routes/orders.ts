@@ -55,4 +55,18 @@ async function readOrder(restaurantId: string, res): Promise<void> {
     res.end()
 }
 
+// update all the orders for a restaurant
+async function updateHandler(req, res): Promise<void> {
+    await updateOrder(req.query.orderId, res)
+}
+
+async function updateOrder(orderId: string, res): Promise<void> {
+    let result = "success"
+    let output = {
+        result: result,
+    }
+    res.write(JSON.stringify(output))
+    res.end()
+}
+
 module.exports = orderRouter
