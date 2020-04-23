@@ -4,3 +4,7 @@
 # misc
 .DS_Store
 .prettierrc.json
+
+# development
+/helper
+/javascript
