@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,112 +35,45 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-$(document).ready(function () {
-    console.log("ready!");
-    readOrders();
-});
-var url = "http://localhost:8080/orders";
-function readOrders() {
+Object.defineProperty(exports, "__esModule", { value: true });
+var url = "http://0.0.0.0:8080/place_orders";
+function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
         return __generator(this, function (_a) {
-            ;
             (function () { return __awaiter(_this, void 0, void 0, function () {
-                var restaurantId, newURL, res, j;
+                var restaurantId, userId, foodItem, quantity, data, newURL, resp, j;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
                             restaurantId = "res123";
+                            userId = "12345";
+                            foodItem = ["food1", "food2"];
+                            quantity = ["1", "2"];
+                            data = {
+                                //restaurantId: "res123",
+                                'restaurantId': restaurantId,
+                                'userId': userId,
+                                'foodItem': foodItem,
+                                'quantity': quantity
+                            };
                             newURL = url + "/?restaurantId=" + restaurantId;
-                            console.log("read order: fetching " + newURL);
-                            return [4 /*yield*/, fetch(newURL)];
-                        case 1:
-                            res = _a.sent();
-                            return [4 /*yield*/, res.json()];
-                        case 2:
-                            j = _a.sent();
-                            console.log(j);
-                            renderOrders(j.orders);
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
-            return [2 /*return*/];
-        });
-    });
-}
-function renderOrders(orders) {
-    console.log("read order: rendering");
-    console.log(orders);
-    var container = $(".incoming-order-container");
-    $.each(orders, function (i, order) {
-        var div = $("<div>")
-            .addClass("one-incoming-order card my-3 rounded shadow-sm")
-            .appendTo(container);
-        var ul = $("<ul>")
-            .addClass("list-group list-group-flush")
-            .appendTo(div);
-        // add call number and button to first row
-        var span = $("<span>")
-            .addClass("order-number col-8")
-            .append($("<strong>").text("Order: " + order.callNumber));
-        var button = $("<button>")
-            .prop("type", "button")
-            .addClass("order-ready-button btn btn-primary col-3 col-lg-2")
-            .text("Ready");
-        var li1 = $("<li>")
-            .addClass("list-group-item order-number-and-ready-button")
-            .append($("<div>")
-            .addClass("row align-items-center justify-content-around")
-            .append(span, button))
-            .appendTo(ul);
-        // add food list
-        $.each(order.content, function (i, food) {
-            $("<li>").addClass("list-group-item").text(food.name).appendTo(ul);
-        });
-    });
-}
-// Update 
-function updateOrders() {
-    return __awaiter(this, void 0, void 0, function () {
-        var _this = this;
-        return __generator(this, function (_a) {
-            ;
-            (function () { return __awaiter(_this, void 0, void 0, function () {
-                var restaurantId, newURL, data, resp, j, container, container;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            restaurantId = "res123";
-                            newURL = url + "/?restaurantId=" + restaurantId;
-                            // console.log("update order: fetching " + newURL)
-                            console.log("orderUpdate: fetching " + newURL);
-                            data = { 'restaurantID': restaurantId };
+                            console.log("create order: fetching " + newURL);
                             return [4 /*yield*/, postData(newURL, data)];
                         case 1:
                             resp = _a.sent();
                             return [4 /*yield*/, resp.json()];
                         case 2:
                             j = _a.sent();
-                            if (j['result'] !== 'error') {
-                                container = $(".incoming-order-container");
-                                $("<h1>Order Result:</h1>").appendTo(container);
-                                $("<p>Success</p>").appendTo(container);
-                            }
-                            else {
-                                container = $(".incoming-order-container");
-                                $("<h1>Order Result:</h1>").appendTo(container);
-                                $("<p>Error</p>").appendTo(container);
-                            }
+                            console.log(j);
                             return [2 /*return*/];
                     }
                 });
-            }); })();
+            }); });
             return [2 /*return*/];
         });
     });
 }
-// NEW: helper method for posting data
 function postData(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;
