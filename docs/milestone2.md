@@ -74,3 +74,5 @@ Get order: mock data created in back end (routes/order.ts), fetched with typescr
 
 # Division of Labor
 Jinhong Gan - Set up server and router, implemented create and get order api in routes/orders.ts, implemented typescript for geting order in frontend in incoming-order.ts, created api documentation for read restaurant, create, read, and update orders, wrote setup.md/readme.md
+
+Dongwei Wu - implented readRestaurant (read Restaurant api) on restaurant.ts for backend, implented PCRUD Create on place-order.ts for frontend, Helped create the documentation for the apis.
