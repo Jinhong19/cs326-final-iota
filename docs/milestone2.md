@@ -2,7 +2,7 @@
 
 ## Get Restaurants
 
-GET: /restaurants?name=<Value>
+GET: /restaurants?name=\<Value\>
 
 Request Data 
 | key | description  | example |
