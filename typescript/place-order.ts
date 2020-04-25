@@ -1,16 +1,10 @@
-$(document).ready(function () {
-    console.log("ready!")
-    readOrders()
-})
-
-
 export {};
-const url = "http://0.0.0.0:8080/restaurants";
+const url = "http://localhost:8080/restaurants";
 
 async function placeOrderCreate(){
     async() =>{
         //let resName = (<HTMLInputElement>document.getElementById("searchInput")).value;
-        const restaurantId = "res123";
+        const restaurantId = "fvr123";
         const userId = "12345" 
         const foodItem= ["food1", "food2"];
         const quantity =["1", "2"]; 
@@ -26,15 +20,21 @@ async function placeOrderCreate(){
         const resp = await postData(newURL, data)
         const j = await resp.json();
         console.log(j);
+        document.getElementById("output").innerHTML = "Customer " + userId + "'s order has been placed to " + restaurantId + " with item(s) " + foodItem + " with the amount of " + quantity;
+        
     }
 }
+
+        let output = document.getElementById('output');
+        output.innerHTML = 'restaurantId';
+
 
 async function postData(url, data) {
     const resp = await fetch(url, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
-        credentials: "same-origin",
+        credentials: "same-origin", 
         headers: {
             "Content-Type": "application/json",
         },
