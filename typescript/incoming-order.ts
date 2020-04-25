@@ -50,3 +50,68 @@ function renderOrders(orders) {
         })
     })
 }
+
+// Update 
+async function updateOrders() {
+    ;(async () => {
+        /*
+        let counterName = document.getElementById("countername").value;
+        let userName = document.getElementById("username").value;
+        // NEW: we no longer add info to the URL (for GET) but instead put it in a JSON object.
+	    const data = { 'name' : counterName }; // -- (1)
+	    const newURL = url + "/users/" + userName + "/update"; // used to be ?name=" + counterName; -- (2)
+	    console.log("counterUpdate: fetching " + newURL);
+	    const resp = await postData(newURL, data); // used to be fetch -- (3)
+	    const j = await resp.json();
+	    if (j['result'] !== 'error') {
+	        document.getElementById("output").innerHTML = "301: <b>" + userName + ", " + counterName + " value = " + j['value'] + "</b>";
+	    } else {
+	        document.getElementById("output").innerHTML = "300: " + userName + ", " + counterName + " not found.";
+        }
+        */
+
+        const restaurantId = "res123"
+        const newURL = url + "/?restaurantId=" + restaurantId
+        // console.log("update order: fetching " + newURL)
+        console.log("orderUpdate: fetching " + newURL);
+        const data = { 'restaurantID' : restaurantId };
+        const resp = await postData(newURL, data); // used to be fetch
+        const j = await resp.json();
+        
+        if (j['result'] !== 'error') {
+	        // document.getElementById("output").innerHTML = "301: <b>" + userName + ", " + counterName + " value = " + j['value'] + "</b>";
+            const container = $(".incoming-order-container")
+            $("<h1>Order Result:</h1>").appendTo(container)
+            $("<p>Success</p>").appendTo(container)
+        } else {
+            // document.getElementById("output").innerHTML = "300: " + userName + ", " + counterName + " not found.";
+            const container = $(".incoming-order-container")
+            $("<h1>Order Result:</h1>").appendTo(container)
+            $("<p>Error</p>").appendTo(container)
+        }
+
+        /*
+        const container = $(".incoming-order-container")
+        $("<h1>Order Result:</h1>").appendTo(container)
+        $("<p>Success</p>").appendTo(container)
+        */
+
+    })();
+    
+}
+
+// NEW: helper method for posting data
+async function postData(url, data) {
+    const resp = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        redirect: "follow",
+        body: JSON.stringify(data),
+    });
+    return resp;
+}
