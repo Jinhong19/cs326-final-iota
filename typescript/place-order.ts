@@ -1,5 +1,11 @@
+$(document).ready(function () {
+    console.log("ready!")
+    readOrders()
+})
+
+
 export {};
-const url = "http://0.0.0.0:8080/place_orders";
+const url = "http://0.0.0.0:8080/restaurants";
 
 async function placeOrderCreate(){
     async() =>{

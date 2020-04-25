@@ -1,6 +1,25 @@
 # api documentation
 
-## Create order
+## Get Restaurants
+
+GET: /restaurants?name=<Value>
+
+Request Data 
+| key | description  | example |
+|---|---|---|
+| name | (Required) Name of a restaurant | localhost:8080/restaurants?name=pizza%20rest |
+
+Response Data
+|---|---|---|
+| key  | type | description |
+| result | string | The type of operation status: one of "success" or "error"|
+| restaurantId | string | The unique id of the restaurant: string |
+| restaurantName | string | The name of the restaurant |
+| menu | array | the menu of this restaurant, format: [{name: food1, price: 2}, …. ] |
+
+
+
+## Create orders
 
 POST: /orders
 

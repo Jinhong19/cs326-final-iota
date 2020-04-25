@@ -16,7 +16,7 @@ async function readRestaurant (restaurantName: string, res){
         result: "success",
         restaurantId: "fvr123",
         restaurantName: "pizzaRestaurant",
-        menu: menu,
+        menu: [{name : "food1", price: "price1" }]
     }
     res.write(JSON.stringify(output))
     res.end()
