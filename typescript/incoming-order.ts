@@ -1,6 +1,7 @@
 $(document).ready(function () {
     console.log("ready!")
     readOrders()
+    updateOrders()
 })
 
 const url = "http://localhost:8080/orders"
