@@ -5,9 +5,6 @@
 Install dependencies:  
 `npm install`  
 
-Build:  
-`npm run build`  
-
 ## Run
 
 Run server locally:  
