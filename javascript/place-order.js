@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var url = "http://0.0.0.0:8080/place_orders";
+var url = "http://localhost:8080/restaurants";
 function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
@@ -46,7 +46,7 @@ function placeOrderCreate() {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            restaurantId = "res123";
+                            restaurantId = "fvr123";
                             userId = "12345";
                             foodItem = ["food1", "food2"];
                             quantity = ["1", "2"];
@@ -66,6 +66,7 @@ function placeOrderCreate() {
                         case 2:
                             j = _a.sent();
                             console.log(j);
+                            document.getElementById("output").innerHTML = "Customer " + userId + "'s order has been placed to " + restaurantId + " with item(s) " + foodItem + " with the amount of " + quantity;
                             return [2 /*return*/];
                     }
                 });
@@ -74,6 +75,8 @@ function placeOrderCreate() {
         });
     });
 }
+var output = document.getElementById('output');
+output.innerHTML = 'restaurantId';
 function postData(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;

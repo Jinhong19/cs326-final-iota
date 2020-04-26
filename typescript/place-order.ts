@@ -1,3 +1,8 @@
+$(document).ready(function(){
+    alert("ok");
+    $("button").click(placeOrderCreate);
+})
+
 export {};
 const url = "http://localhost:8080/restaurants";
 
@@ -21,13 +26,10 @@ async function placeOrderCreate(){
         const j = await resp.json();
         console.log(j);
         document.getElementById("output").innerHTML = "Customer " + userId + "'s order has been placed to " + restaurantId + " with item(s) " + foodItem + " with the amount of " + quantity;
-        
     }
 }
-
-        let output = document.getElementById('output');
-        output.innerHTML = 'restaurantId';
-
+        //let output = document.getElementById('output');
+        //output.innerHTML = 'restaurantId';
 
 async function postData(url, data) {
     const resp = await fetch(url, {

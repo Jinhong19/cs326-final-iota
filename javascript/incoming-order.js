@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 $(document).ready(function () {
     console.log("ready!");
     readOrders();
+    updateOrders();
 });
 var url = "http://localhost:8080/orders";
 function readOrders() {
