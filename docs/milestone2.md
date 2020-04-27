@@ -72,6 +72,8 @@ Response
 Get order: mock data created in back end (routes/order.ts), fetched with typescript (typescript/incoming-order.ts) and rendered with Jquery by modifying html (incoming-order.ts)  
 ![read order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/read_order.png)  
 
+Place order: Currently using static data from place-order.ts, It will Using these data it will create an order for the user and let them know that the order has been created
+![read order screenshot](https://github.com/cs326-final-iota/docs/images/place_order_interface.png) 
 # Division of Labor
 Jinhong Gan - Set up server and router, implemented create and get order api in routes/orders.ts, implemented typescript for geting order in frontend in incoming-order.ts, created api documentation for read restaurant, create, read, and update orders, wrote setup.md/readme.md
 
