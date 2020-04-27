@@ -15,8 +15,12 @@
     <script src="../javascript/place-order.js"></script>
     <script>
       $(document).ready(function(){
-    alert("ok");
-})
+      $("p").hide();
+      $("button").click(function(){
+        $("p").toggle();
+      })
+      });
+      
     </script>
   </head>
   <body>
@@ -30,7 +34,7 @@
         </div>
       </div>
       <div class="menu-div">
-        <p class="menu-title h3">Menu</p>
+        <!-- <p class="menu-title h3">Menu</p> -->
         <div class="menu-items-container container">
           <table class="table">
             <thead>
@@ -106,8 +110,7 @@
         </div>
       </div>
       <button type="button" class="btn btn-primary">Submit</button>
-    </div>
-    <div>
+      <p>your order has been placed!</p>
     </div>
   </body>
 </html>
