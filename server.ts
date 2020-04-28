@@ -7,6 +7,7 @@ export class Server {
     // require routers
     private restaurantsRouter = require("./routes/restaurants")
     private ordersRouter = require("./routes/orders")
+    private updateRouter = require("./routes/update_orders")
 
     constructor() {
         // middleware
@@ -20,6 +21,7 @@ export class Server {
         // Set up routers
         this.server.use("/restaurants", this.restaurantsRouter)
         this.server.use("/orders", this.ordersRouter)
+        this.server.use("/update_orders", this.updateRouter)
     }
     public listen(port): void {
         this.server.listen(port, () =>
