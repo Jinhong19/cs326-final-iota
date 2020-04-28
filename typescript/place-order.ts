@@ -1,6 +1,9 @@
 $(document).ready(function(){
-    alert("ok");
-    $("button").click(placeOrderCreate);
+    $("button").click(function(){
+        placeOrderCreate();
+        $("p").toggle();
+    });
+    
 })
 
 export {};
@@ -25,7 +28,6 @@ async function placeOrderCreate(){
         const resp = await postData(newURL, data)
         const j = await resp.json();
         console.log(j);
-        document.getElementById("output").innerHTML = "Customer " + userId + "'s order has been placed to " + restaurantId + " with item(s) " + foodItem + " with the amount of " + quantity;
     }
 }
         //let output = document.getElementById('output');
