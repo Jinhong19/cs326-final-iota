@@ -36,6 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+$(document).ready(function () {
+    $("button").click(function () {
+        placeOrderCreate();
+        $("p").toggle();
+    });
+});
 var url = "http://localhost:8080/restaurants";
 function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
@@ -66,7 +72,6 @@ function placeOrderCreate() {
                         case 2:
                             j = _a.sent();
                             console.log(j);
-                            document.getElementById("output").innerHTML = "Customer " + userId + "'s order has been placed to " + restaurantId + " with item(s) " + foodItem + " with the amount of " + quantity;
                             return [2 /*return*/];
                     }
                 });
@@ -75,8 +80,8 @@ function placeOrderCreate() {
         });
     });
 }
-var output = document.getElementById('output');
-output.innerHTML = 'restaurantId';
+//let output = document.getElementById('output');
+//output.innerHTML = 'restaurantId';
 function postData(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;

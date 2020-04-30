@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 $(document).ready(function () {
     console.log("ready!");
     readOrders();
-    updateOrders();
+    // updateOrders()
 });
 var url = "http://localhost:8080/orders";
 function readOrders() {
@@ -46,14 +46,17 @@ function readOrders() {
         return __generator(this, function (_a) {
             ;
             (function () { return __awaiter(_this, void 0, void 0, function () {
-                var restaurantId, newURL, res, j;
+                var restaurantId, newURL, data, res, j;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
                             restaurantId = "res123";
-                            newURL = url + "/?restaurantId=" + restaurantId;
+                            newURL = url + "/read";
                             console.log("read order: fetching " + newURL);
-                            return [4 /*yield*/, fetch(newURL)];
+                            data = {
+                                restaurantId: restaurantId
+                            };
+                            return [4 /*yield*/, postData(newURL, data)];
                         case 1:
                             res = _a.sent();
                             return [4 /*yield*/, res.json()];
@@ -101,45 +104,48 @@ function renderOrders(orders) {
     });
 }
 // Update 
-function updateOrders() {
-    return __awaiter(this, void 0, void 0, function () {
-        var _this = this;
-        return __generator(this, function (_a) {
-            ;
-            (function () { return __awaiter(_this, void 0, void 0, function () {
-                var restaurantId, newURL, data, resp, j, container, container;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            restaurantId = "res123";
-                            newURL = url + "/?restaurantId=" + restaurantId;
-                            // console.log("update order: fetching " + newURL)
-                            console.log("orderUpdate: fetching " + newURL);
-                            data = { 'restaurantID': restaurantId };
-                            return [4 /*yield*/, postData(newURL, data)];
-                        case 1:
-                            resp = _a.sent();
-                            return [4 /*yield*/, resp.json()];
-                        case 2:
-                            j = _a.sent();
-                            if (j['result'] !== 'error') {
-                                container = $(".incoming-order-container");
-                                $("<h1>Order Result:</h1>").appendTo(container);
-                                $("<p>Success</p>").appendTo(container);
-                            }
-                            else {
-                                container = $(".incoming-order-container");
-                                $("<h1>Order Result:</h1>").appendTo(container);
-                                $("<p>Error</p>").appendTo(container);
-                            }
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
-            return [2 /*return*/];
-        });
-    });
-}
+// async function updateOrders() {
+//     ;(async () => {
+//         /*
+//         let counterName = document.getElementById("countername").value;
+//         let userName = document.getElementById("username").value;
+//         // NEW: we no longer add info to the URL (for GET) but instead put it in a JSON object.
+// 	    const data = { 'name' : counterName }; // -- (1)
+// 	    const newURL = url + "/users/" + userName + "/update"; // used to be ?name=" + counterName; -- (2)
+// 	    console.log("counterUpdate: fetching " + newURL);
+// 	    const resp = await postData(newURL, data); // used to be fetch -- (3)
+// 	    const j = await resp.json();
+// 	    if (j['result'] !== 'error') {
+// 	        document.getElementById("output").innerHTML = "301: <b>" + userName + ", " + counterName + " value = " + j['value'] + "</b>";
+// 	    } else {
+// 	        document.getElementById("output").innerHTML = "300: " + userName + ", " + counterName + " not found.";
+//         }
+//         */
+//         const restaurantId = "res123"
+//         const newURL = url + "/?restaurantId=" + restaurantId
+//         // console.log("update order: fetching " + newURL)
+//         console.log("orderUpdate: fetching " + newURL);
+//         const data = { 'restaurantID' : restaurantId };
+//         const resp = await postData(newURL, data); // used to be fetch
+//         const j = await resp.json();
+//         if (j['result'] !== 'error') {
+// 	        // document.getElementById("output").innerHTML = "301: <b>" + userName + ", " + counterName + " value = " + j['value'] + "</b>";
+//             const container = $(".incoming-order-container")
+//             $("<h1>Order Result:</h1>").appendTo(container)
+//             $("<p>Success</p>").appendTo(container)
+//         } else {
+//             // document.getElementById("output").innerHTML = "300: " + userName + ", " + counterName + " not found.";
+//             const container = $(".incoming-order-container")
+//             $("<h1>Order Result:</h1>").appendTo(container)
+//             $("<p>Error</p>").appendTo(container)
+//         }
+//         /*
+//         const container = $(".incoming-order-container")
+//         $("<h1>Order Result:</h1>").appendTo(container)
+//         $("<p>Success</p>").appendTo(container)
+//         */
+//     })();
+// }
 // NEW: helper method for posting data
 function postData(url, data) {
     return __awaiter(this, void 0, void 0, function () {
