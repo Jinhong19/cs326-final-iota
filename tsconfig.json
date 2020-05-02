@@ -5,6 +5,6 @@
         "declaration": true,
         "outDir": "./javascript",
     },
-    "include": ["typescript"],
+    "include": ["typescript", "javascript/incoming-order.js"],
     "exclude": ["node_modules"]
 }

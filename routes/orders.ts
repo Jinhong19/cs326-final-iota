@@ -2,6 +2,7 @@ const orderRouter = require("express").Router()
 
 orderRouter.route("/create").post(createHandler)
 orderRouter.route("/read").post(readHandler)
+orderRouter.route("/update").post(updateHandler)
 
 // create a order, base on the content from frontend
 async function createHandler(req, res): Promise<void> {
@@ -21,6 +22,7 @@ async function readHandler(req, res): Promise<void> {
     console.log("read order handler")
     await readOrder(req.body.restaurantId, res)
 }
+
 async function readOrder(restaurantId: string, res): Promise<void> {
     // should get this from database later, mock content for all restaurantId
     let orders = [
@@ -58,14 +60,19 @@ async function readOrder(restaurantId: string, res): Promise<void> {
 
 // update all the orders for a restaurant
 async function updateHandler(req, res): Promise<void> {
+    console.log("update order handler")
     await updateOrder(req.query.orderId, res)
 }
 
 async function updateOrder(orderId: string, res): Promise<void> {
-    let result = "success"
+    let order_result = "success"
+
     let output = {
-        result: result,
+        result: "success",
+        orderId: orderId,
+        order_result: order_result,
     }
+    
     res.write(JSON.stringify(output))
     res.end()
 }
