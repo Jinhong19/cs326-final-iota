@@ -3,12 +3,14 @@ const cors = require("cors")
 
 export class Server {
     private server = express()
+    private db
 
     // require routers
     private restaurantsRouter = require("./routes/restaurants")
     private ordersRouter = require("./routes/orders")
 
-    constructor() {
+    constructor(db) {
+        this.db = db
         // middleware
         this.server.use(cors())
         // send and receive json files
