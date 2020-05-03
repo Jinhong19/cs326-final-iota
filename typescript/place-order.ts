@@ -1,13 +1,5 @@
-$(document).ready(function(){
-    $("button").click(function(){
-        placeOrderCreate();
-        $("p").toggle();
-    });
-    
-})
-
 export {};
-const url = "http://localhost:8080/restaurants";
+const url = "http://localhost:8080/order";
 
 async function placeOrderCreate(){
     async() =>{
@@ -23,7 +15,7 @@ async function placeOrderCreate(){
             'foodItem' : foodItem,
             'quantity' : quantity
           };
-        const newURL = url + "/?restaurantId=" + restaurantId
+        const newURL = url + "/create"
         console.log("create order: fetching " + newURL);
         const resp = await postData(newURL, data)
         const j = await resp.json();

@@ -160,10 +160,10 @@ function postData(url, data) {
                         cache: "no-cache",
                         credentials: "same-origin",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
                         },
                         redirect: "follow",
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(data),
                     })];
                 case 1:
                     resp = _a.sent();
