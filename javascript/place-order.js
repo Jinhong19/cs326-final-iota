@@ -36,13 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-$(document).ready(function () {
-    $("button").click(function () {
-        placeOrderCreate();
-        $("p").toggle();
-    });
-});
-var url = "http://localhost:8080/restaurants";
+var url = "http://localhost:8080/order";
 function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
@@ -63,7 +57,7 @@ function placeOrderCreate() {
                                 'foodItem': foodItem,
                                 'quantity': quantity
                             };
-                            newURL = url + "/?restaurantId=" + restaurantId;
+                            newURL = url + "/create";
                             console.log("create order: fetching " + newURL);
                             return [4 /*yield*/, postData(newURL, data)];
                         case 1:

@@ -1,4 +1,5 @@
 export {};
+
 const restaurantsRouter = require("express").Router()
 
 restaurantsRouter.route("/").post(createHandler).get(readHandler);
@@ -27,8 +28,6 @@ async function readHandler(req, res): Promise<void> {
 }
 
 async function createHandler(req, res): Promise<void> {
-    // store the order in database
-
     // create response
     let output = {
         result: "success",

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../javascript/place-order.js"></script>
-    <script>
+    <!-- <script>
       $(document).ready(function(){
       $("p").hide();
       $("button").click(function(){
@@ -21,7 +21,7 @@
       })
       });
       
-    </script>
+    </script> -->
   </head>
   <body>
     <div class="place-order-container container border p-sm-4">
@@ -109,8 +109,8 @@
           </table>
         </div>
       </div>
-      <button type="button" class="btn btn-primary">Submit</button>
-      <p>your order has been placed!</p>
+      <button type="button" class="btn btn-primary" onclick="placeOrderCreate()">Submit</button>
+      <!-- <p>your order has been placed!</p> -->
     </div>
   </body>
 </html>
