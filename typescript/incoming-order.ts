@@ -70,38 +70,6 @@ async function updateOrders() {
         const j = await res.json()
         console.log(j)
         addUpdate(j.order_result)
-
-        /*
-        if (j['result'] !== 'error') {
-	        // document.getElementById("output").innerHTML = "301: <b>" + userName + ", " + counterName + " value = " + j['value'] + "</b>";
-            const container = $(".incoming-order-container")
-            $("<h2>Order Result:</h2>").appendTo(container)
-            $("<p>Success</p>").appendTo(container)
-        } else {
-            // document.getElementById("output").innerHTML = "300: " + userName + ", " + counterName + " not found.";
-            const container = $(".incoming-order-container")
-            $("<h2>Order Result:</h2>").appendTo(container)
-            $("<p>Error</p>").appendTo(container)
-        }
-        */
-
-        /*
-        const container = $(".incoming-order-container")
-        const div = $("<div>")
-            .appendTo(container)
-        const h2 = $("<h2>")
-            .text("Ready")
-            .appendTo(div)
-        const p = $("<p>")
-            .text("" + j.order_result)
-            .appendTo(div)
-        */
-
-        /*
-        const container = $(".incoming-order-container")
-        $("<h2>Order Result:</h2>").appendTo(container)
-        $("<p>Success</p>").appendTo(container)
-        */
     })();
     
 }
