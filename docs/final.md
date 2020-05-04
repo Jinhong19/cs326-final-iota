@@ -14,7 +14,9 @@ Spring 2020
 
 ## Team Members:
 Jinhong Gan (Jinhong19)
+
 Rudra Guin (rguin26)
+
 Dongwei Wu (DonnyWu)
 
 ## APIs:
