@@ -31,6 +31,7 @@ export class Database {
     }
 
     // not tested yet, test after router + database integration
+    // handle create and update order
     public async putOrderByOrderId(orderId, updateList): Promise<void> {
         let db = this.client.db(this.dbName)
         let collectionName = "Order"
