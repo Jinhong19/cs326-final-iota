@@ -1,8 +1,14 @@
-const orderRouter = require("express").Router()
+export class orderRouter {
+    public router = require("express").Router()
+    private db
 
-orderRouter.route("/create").post(createHandler)
-orderRouter.route("/read").post(readHandler)
-orderRouter.route("/update").post(updateHandler)
+    constructor(db) {
+        this.db = db
+        this.router.route("/create").post(createHandler)
+        this.router.route("/read").post(readHandler)
+        this.router.route("/update").post(updateHandler)
+    }
+}
 
 // create a order, base on the content from frontend
 async function createHandler(req, res): Promise<void> {
@@ -72,9 +78,8 @@ async function updateOrder(orderId: string, res): Promise<void> {
         orderId: orderId,
         order_result: order_result,
     }
-    
+
     res.write(JSON.stringify(output))
     res.end()
 }
 
-module.exports = orderRouter

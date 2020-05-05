@@ -1,23 +1,27 @@
-export {};
+export class restaurantRouter {
+    public router = require("express").Router()
+    private db
 
-const restaurantRouter = require("express").Router()
+    constructor(db) {
+        this.db = db
+        this.router.route("/").post(createHandler).get(readHandler)
+    }
+}
 
-restaurantRouter.route("/create").post(createHandler).get(readHandler);
-
-async function readRestaurant (restaurantName: string, res){
+async function readRestaurant(restaurantName: string, res) {
     //mock data, testing purposes only
     let menu = [
         {
             name: "pizza",
-            price: 3
-        }
+            price: 3,
+        },
     ]
 
     let output = {
         result: "success",
         restaurantId: "fvr123",
         restaurantName: "pizzaRestaurant",
-        menu: [{name : "food1", price: "price1" }]
+        menu: [{ name: "food1", price: "price1" }],
     }
     res.write(JSON.stringify(output))
     res.end()
@@ -36,7 +40,3 @@ async function createHandler(req, res): Promise<void> {
     res.write(JSON.stringify(output))
     res.end()
 }
-
-module.exports = restaurantRouter
-
-

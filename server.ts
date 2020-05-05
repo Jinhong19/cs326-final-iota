@@ -1,13 +1,15 @@
 const express = require("express")
 const cors = require("cors")
 
+import { orderRouter } from "./routes/orders"
+import { restaurantRouter } from "./routes/restaurants"
+
+
 export class Server {
     private server = express()
     private db
-
-    // require routers
-    private restaurantsRouter = require("./routes/restaurants")
-    private ordersRouter = require("./routes/orders")
+    private orderRouter
+    private restaurantRouter
 
     constructor(db) {
         this.db = db
@@ -20,12 +22,14 @@ export class Server {
         this.server.use("/", express.static("./pages"))
 
         // Set up routers
-        this.server.use("/restaurants", this.restaurantsRouter)
-        this.server.use("/orders", this.ordersRouter)
+        this.orderRouter = new orderRouter(this.db).router
+        this.restaurantRouter = new restaurantRouter(this.db).router
+        this.server.use("/restaurants", this.restaurantRouter)
+        this.server.use("/orders", this.orderRouter)
     }
     public listen(port): void {
         this.server.listen(port, () =>
-            console.log("App listening on port "+ port + "!")
+            console.log("App listening on port " + port + "!")
         )
     }
 }
