@@ -2,7 +2,7 @@ export {};
 const url = "http://localhost:8080/order";
 
 async function placeOrderCreate(){
-    async() =>{
+    ;(async() =>{
         //let resName = (<HTMLInputElement>document.getElementById("searchInput")).value;
         const restaurantId = "fvr123";
         const userId = "12345" 
@@ -14,16 +14,15 @@ async function placeOrderCreate(){
             'userId' : userId,
             'foodItem' : foodItem,
             'quantity' : quantity
-          };
+        }
         const newURL = url + "/create"
         console.log("create order: fetching " + newURL);
         const resp = await postData(newURL, data)
         const j = await resp.json();
         console.log(j);
-    }
+    })()
 }
-        //let output = document.getElementById('output');
-        //output.innerHTML = 'restaurantId';
+
 
 async function postData(url, data) {
     const resp = await fetch(url, {

@@ -41,6 +41,7 @@ function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
         return __generator(this, function (_a) {
+            ;
             (function () { return __awaiter(_this, void 0, void 0, function () {
                 var restaurantId, userId, foodItem, quantity, data, newURL, resp, j;
                 return __generator(this, function (_a) {
@@ -69,13 +70,11 @@ function placeOrderCreate() {
                             return [2 /*return*/];
                     }
                 });
-            }); });
+            }); })();
             return [2 /*return*/];
         });
     });
 }
-//let output = document.getElementById('output');
-//output.innerHTML = 'restaurantId';
 function postData(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;

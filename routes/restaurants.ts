@@ -1,8 +1,8 @@
 export {};
 
-const restaurantsRouter = require("express").Router()
+const restaurantRouter = require("express").Router()
 
-restaurantsRouter.route("/").post(createHandler).get(readHandler);
+restaurantRouter.route("/create").post(createHandler).get(readHandler);
 
 async function readRestaurant (restaurantName: string, res){
     //mock data, testing purposes only
@@ -37,6 +37,6 @@ async function createHandler(req, res): Promise<void> {
     res.end()
 }
 
-module.exports = restaurantsRouter
+module.exports = restaurantRouter
 
 
