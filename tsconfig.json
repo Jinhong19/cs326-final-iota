@@ -3,8 +3,8 @@
         "target": "es5",
         "module": "commonjs",
         "declaration": true,
-        "outDir": "./javascript",
+        "outDir": "./pages",
     },
-    "include": ["typescript", "javascript/incoming-order.js"],
+    "include": ["typescript"],
     "exclude": ["node_modules"]
 }
