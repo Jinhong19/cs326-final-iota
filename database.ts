@@ -45,6 +45,20 @@ export class Database {
         console.log("result = " + result)
     }
 
+    public async findOneRestaurant(restaurantId, resName){
+        let result = await this.client.db(this.dbName).collection("restaurant").findOne({restaurantId: resName});
+
+        if (result){
+            console.log(`No listings found with the name '${resName}'`);
+            console.log(result);
+        }else{
+            console.log('No results found');
+        }
+            
+    }
+
+    
+
     // public async get(key: string): Promise<string> {
     //     let db = this.client.db(this.dbName) // this.level(this.dbFile);
     //     let collection = db.collection(this.collectionName)
