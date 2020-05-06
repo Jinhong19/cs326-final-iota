@@ -40,6 +40,7 @@ function renderOrders(orders) {
             .prop("type", "button")
             .addClass("order-ready-button btn btn-primary col-3 col-lg-2")
             .text("Ready")
+            // .attr("click", "updateOrders(order.callNumber)")
         const li1 = $("<li>")
             .addClass("list-group-item order-number-and-ready-button")
             .append(
@@ -69,7 +70,7 @@ async function updateOrders() {
         const res = await postData(newURL, data)
         const j = await res.json()
         console.log(j)
-        addUpdate(j.order_result)
+        // addUpdate(j.order_result)
     })();
     
 }

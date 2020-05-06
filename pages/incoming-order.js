@@ -91,6 +91,7 @@ function renderOrders(orders) {
             .prop("type", "button")
             .addClass("order-ready-button btn btn-primary col-3 col-lg-2")
             .text("Ready");
+        // .attr("click", "updateOrders(order.callNumber)")
         var li1 = $("<li>")
             .addClass("list-group-item order-number-and-ready-button")
             .append($("<div>")
@@ -160,10 +161,10 @@ function postData(url, data) {
                         cache: "no-cache",
                         credentials: "same-origin",
                         headers: {
-                            "Content-Type": "application/json",
+                            "Content-Type": "application/json"
                         },
                         redirect: "follow",
-                        body: JSON.stringify(data),
+                        body: JSON.stringify(data)
                     })];
                 case 1:
                     resp = _a.sent();

@@ -5,6 +5,6 @@
         "declaration": true,
         "outDir": "./pages",
     },
-    "include": ["typescript"],
+    "include": ["typescript", "pages/incoming-order.js", "routes/incoming-order.js"],
     "exclude": ["node_modules"]
 }
