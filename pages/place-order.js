@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,8 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var url = "http://localhost:8080/order";
+var urlPlaceOrder = "http://localhost:8080/orders";
 function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
@@ -58,9 +56,10 @@ function placeOrderCreate() {
                                 'foodItem': foodItem,
                                 'quantity': quantity
                             };
-                            newURL = url + "/create";
+                            console.log(urlPlaceOrder);
+                            newURL = urlPlaceOrder + "/create";
                             console.log("create order: fetching " + newURL);
-                            return [4 /*yield*/, postData(newURL, data)];
+                            return [4 /*yield*/, postDataPlaceOrder(newURL, data)];
                         case 1:
                             resp = _a.sent();
                             return [4 /*yield*/, resp.json()];
@@ -75,7 +74,7 @@ function placeOrderCreate() {
         });
     });
 }
-function postData(url, data) {
+function postDataPlaceOrder(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;
         return __generator(this, function (_a) {

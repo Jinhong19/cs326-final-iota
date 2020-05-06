@@ -1,4 +1,4 @@
-const place_order_url = "http://localhost:8080/orders";
+const urlPlaceOrder = "http://localhost:8080/orders";
 
 async function placeOrderCreate(){
     ;(async() =>{
@@ -14,17 +14,18 @@ async function placeOrderCreate(){
             'foodItem' : foodItem,
             'quantity' : quantity
         }
-        const place_order_newURL = url + "/create"
-        console.log("create order: fetching " + place_order_newURL);
-        const resp = await postData(place_order_newURL, data)
+        console.log(urlPlaceOrder)
+        const newURL = urlPlaceOrder + "/create"
+        console.log("create order: fetching " + newURL);
+        const resp = await postDataPlaceOrder(newURL, data)
         const j = await resp.json();
         console.log(j);
     })()
 }
 
 
-async function postData(place_order_url, data) {
-    const resp = await fetch(place_order_url, {
+async function postDataPlaceOrder(url, data) {
+    const resp = await fetch(url, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
