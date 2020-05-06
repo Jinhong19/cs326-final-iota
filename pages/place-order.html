@@ -13,15 +13,6 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./place-order.js"></script>
-    <!-- <script>
-      $(document).ready(function(){
-      $("p").hide();
-      $("button").click(function(){
-        $("p").toggle();
-      })
-      });
-      
-    </script> -->
   </head>
   <body>
     <div class="place-order-container container border p-sm-4">
@@ -30,7 +21,11 @@
           <label class="h3" for="inputSearchRestaurant"
             >Search for restaurant</label
           >
-          <input type="searchInput" class="form-control" id="inputSearchRestaurant" />
+          <input
+            type="searchInput"
+            class="form-control"
+            id="inputSearchRestaurant"
+          />
         </div>
       </div>
       <div class="menu-div">
@@ -47,60 +42,22 @@
             <tbody>
               <tr>
                 <td>
-                  <div class="counter-input input-group">
-                    <div class="input-group-prepend">
-                      <button
-                        class="btn btn-outline-secondary btn-sm"
-                        type="button"
-                      >
-                        -
-                      </button>
-                    </div>
-                    <input
-                      type="number"
-                      class="w-25 p-0 text-center border border-secondary"
-                      placeholder="0"
-                      readonly
-                    />
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-outline-secondary btn-sm"
-                        type="button"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                  <input
+                    type="number"
+                    class="menu-item-quantity w-50 p-0 text-center"
+                    placeholder="0"
+                  />
                 </td>
                 <td>pizza</td>
                 <td>$2.00</td>
               </tr>
               <tr>
                 <td>
-                  <div class="counter-input input-group">
-                    <div class="input-group-prepend">
-                      <button
-                        class="btn btn-outline-secondary btn-sm"
-                        type="button"
-                      >
-                        -
-                      </button>
-                    </div>
-                    <input
-                      type="number"
-                      class="w-25 p-0 text-center border border-secondary"
-                      placeholder="0"
-                      readonly
-                    />
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-outline-secondary btn-sm"
-                        type="button"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                  <input
+                    type="number"
+                    class="menu-item-quantity w-50 p-0 text-center"
+                    placeholder="0"
+                  />
                 </td>
                 <td>pizza</td>
                 <td>$3.00</td>
@@ -109,7 +66,13 @@
           </table>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" onclick="placeOrderCreate()">Submit</button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        onclick="placeOrderCreate()"
+      >
+        Submit
+      </button>
       <!-- <p>your order has been placed!</p> -->
     </div>
   </body>
