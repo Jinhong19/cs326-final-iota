@@ -34,9 +34,9 @@ export class Database {
     // handle create and update order
     public async putOrderByOrderId(orderId, updateList): Promise<void> {
         let db = this.client.db(this.dbName)
-        let collectionName = "Order"
+        let collectionName = "order"
         let collection = db.collection(collectionName)
-        console.log("put with orderId: " + orderId)
+        console.log("mongodb: put order by orderId: " + orderId)
         let result = await collection.updateOne(
             { orderId: orderId },
             { $set: updateList },

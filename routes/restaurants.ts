@@ -4,7 +4,7 @@ export class restaurantRouter {
 
     constructor(db) {
         this.db = db
-        this.router.route("/").post(createHandler).get(readHandler)
+        this.router.route("/").post(createHandler.bind(this)).get(readHandler.bind(this))
     }
 }
 

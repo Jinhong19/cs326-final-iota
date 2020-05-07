@@ -8,10 +8,9 @@ async function placeOrderCreate() {
         const content = [
             {
                 name: "Cookie",
-                price: 1.34,
                 quantity: 3,
             },
-            { name: "Apple", price: 0.12, quantity: 1 },
+            { name: "Apple",  quantity: 1 },
         ]
         // pass in restaurantId, userId, and content
         let data = {

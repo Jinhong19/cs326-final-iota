@@ -1,54 +1,44 @@
 export class orderRouter {
     public router = require("express").Router()
-    private db
-    // private orders
+    private db 
+    private orderIdNumber: number
+    private callNumber: number
 
     constructor(db) {
         this.db = db
-        this.router.route("/create").post(createHandler)
-        this.router.route("/read").post(readHandler)
-        this.router.route("/update").post(updateHandler)
-
-        /*
-        this.orders = [
-            {
-                callNumber: 1,
-                content: [
-                    {
-                        name: "Pizza",
-                        price: 3.55,
-                        quantity: 2,
-                    },
-                    { name: "Ice cream", price: 33.1213, quantity: 1 },
-                ],
-            },
-            {
-                callNumber: 22,
-                content: [
-                    {
-                        name: "Cookie",
-                        price: 1.34,
-                        quantity: 3,
-                    },
-                    { name: "Apple", price: 0.12, quantity: 1 },
-                ],
-            },
-        ]
-        */
+        this.callNumber = 0
+        this.orderIdNumber = 0
+        this.router.route("/create").post(createHandler.bind(this))
+        this.router.route("/read").post(readHandler.bind(this))
+        this.router.route("/update").post(updateHandler.bind(this))
     }
 }
 
 // create a order, base on the content from frontend
+// getting restaurantId, userId, and content from req.body
+// need orderId, call number and ready
 async function createHandler(req, res): Promise<void> {
+    // create entry for database
+    const orderId = "order" + this.orderIdNumber
+    let appendData = {
+        callNumber: this.callNumber,
+        ready: false,
+    }
+    this.orderIdNumber++
+    this.callNumber++
+    let data = Object.assign(appendData, req.body)
+
     // store the order in database
+    this.db.putOrderByOrderId(orderId, data)
 
     // create response
-    let output = {
+    let result = {
         result: "success",
     }
-    output = Object.assign(output, req.body)
+    let output = Object.assign(result, data)
     res.write(JSON.stringify(output))
     res.end()
+    console.log(output.result)
 }
 
 // read all the orders for a restaurant
@@ -60,7 +50,6 @@ async function readHandler(req, res): Promise<void> {
 async function readOrder(restaurantId: string, res): Promise<void> {
     // should get this from database later, mock content for all restaurantId
 
-    
     let orders = [
         {
             callNumber: 1,
@@ -85,7 +74,6 @@ async function readOrder(restaurantId: string, res): Promise<void> {
             ],
         },
     ]
-    
 
     let output = {
         result: "success",
@@ -103,30 +91,6 @@ async function updateHandler(req, res): Promise<void> {
     await updateOrder(req.query.orderId, res)
 }
 
-/*
-example update function:
-
-async function updateListingByName(client, nameOfListing, updatedListing) {
-    result = await client.db("sample_airbnb").collection("listingsAndReviews")
-                        .updateOne({ name: nameOfListing }, { $set: updatedListing });
-
-    console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-    console.log(`${result.modifiedCount} document(s) was/were updated.`);
-}
-*/
-
-/*
-mock update order function:
-
-async function updateOrder(orderId: string, res) {
-    result = await client.db("development").collection("order")
-                        .updateOne({ name: nameOfListing }, { $set: updatedListing });
-
-    console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-    console.log(`${result.modifiedCount} document(s) was/were updated.`);
-}
-*/
-
 async function updateOrder(orderId: string, res): Promise<void> {
     let order_result = "success"
 
@@ -136,20 +100,6 @@ async function updateOrder(orderId: string, res): Promise<void> {
         order_result: order_result,
     }
 
-    /*
-    const people = [ {name: "john", age:23},
-                {name: "john", age:43},
-                {name: "jim", age:101},
-                {name: "bob", age:67} ];
-    const john = people.find(person => person.name === 'john');
-    */
-
-    /*
-    let x = orders.find(order => order.orderId === orderId)
-    orders.splice(x, 1);
-    */
-
     res.write(JSON.stringify(output))
     res.end()
 }
-
