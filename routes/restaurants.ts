@@ -1,10 +1,14 @@
 export class restaurantRouter {
     public router = require("express").Router()
     private db
+    private restaurantId: string
+    private name: string
 
     constructor(db) {
         this.db = db
         this.router.route("/").post(createHandler.bind(this)).get(readHandler.bind(this))
+        this.restaurantId = ""
+        this.name = ""
     }
 }
 

@@ -2,7 +2,6 @@ const urlPlaceOrder = "http://localhost:8080/orders"
 
 async function placeOrderCreate() {
     ;(async () => {
-        //let resName = (<HTMLInputElement>document.getElementById("searchInput")).value;
         const restaurantId = "res1"
         const userId = "user2"
         const content = [
@@ -14,7 +13,6 @@ async function placeOrderCreate() {
         ]
         // pass in restaurantId, userId, and content
         let data = {
-            //restaurantId: "res123",
             restaurantId: restaurantId,
             userId: userId,
             content: content,
