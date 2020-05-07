@@ -3,17 +3,18 @@ export class restaurantRouter {
     private db
     private restaurantId: string
     private name: string
+    private menu: object
 
     constructor(db) {
         this.db = db
         this.router.route("/").post(createHandler.bind(this)).get(readHandler.bind(this))
         this.restaurantId = ""
         this.name = ""
+        this.menu = []
     }
 }
 
 async function readRestaurant(restaurantName: string, res) {
-    
     //mock data, testing purposes only
     let menu = [
         {
@@ -33,6 +34,7 @@ async function readRestaurant(restaurantName: string, res) {
 }
 
 async function readHandler(req, res): Promise<void> {
+    console.log("getting restaurant")
     await readRestaurant(req.query.readRestaurant, res)
 }
 
@@ -45,13 +47,17 @@ async function createHandler(req, res): Promise<void> {
 
     let data = Object.assign(input, req.body)
 
-    this.db.putOrderByOrderId(restaurantId,data)
+    this.db.findOneRestaurant(restaurantId,data)
     
     // create response
-    let output = {
+    let response = {
         result: "success",
+        //restaurantId: restaurantId,
+        restaurantName: name,
+        menu: this.menu
     }
-    output = Object.assign(output, req.body)
+
+    let output = Object.assign(response, req.body)
     res.write(JSON.stringify(output))
     res.end()
 }
