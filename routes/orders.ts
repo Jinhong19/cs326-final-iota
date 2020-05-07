@@ -52,6 +52,7 @@ async function readOrder(restaurantId: string, res): Promise<void> {
 
     let orders = [
         {
+            orderId: 34,
             callNumber: 1,
             content: [
                 {
@@ -63,6 +64,7 @@ async function readOrder(restaurantId: string, res): Promise<void> {
             ],
         },
         {
+            orderId: 66,
             callNumber: 22,
             content: [
                 {
@@ -88,16 +90,13 @@ async function readOrder(restaurantId: string, res): Promise<void> {
 // update all the orders for a restaurant
 async function updateHandler(req, res): Promise<void> {
     console.log("update order handler")
-    await updateOrder(req.query.orderId, res)
-}
-
-async function updateOrder(orderId: string, res): Promise<void> {
-    let order_result = "success"
+    const orderId = req.body.orderId
+    // change ready field in database with order id
+    this.db.putOrderByOrderId(orderId, {ready: true})
 
     let output = {
         result: "success",
         orderId: orderId,
-        order_result: order_result,
     }
 
     res.write(JSON.stringify(output))

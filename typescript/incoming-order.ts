@@ -1,7 +1,6 @@
 $(document).ready(function () {
     console.log("ready!")
-    readOrders();
-    updateOrders();
+    readOrders()
 })
 
 const url = "http://localhost:8080/orders"
@@ -10,17 +9,18 @@ async function readOrders() {
     ;(async () => {
         const restaurantId = "res123"
         const newURL = url + "/read"
-        console.log("read order: fetching " + newURL)
+        console.log("read order: fetching with " + newURL)
         let data = {
-            restaurantId: restaurantId
+            restaurantId: restaurantId,
         }
-        const res = await postData(newURL, data)
+        const res = await postDataIncomingOrder(newURL, data)
         const j = await res.json()
         console.log(j)
         renderOrders(j.orders)
     })()
 }
 
+// need order to be array of {orderId: ?, callNumber: ?, content: array}
 function renderOrders(orders) {
     console.log("read order: rendering")
     console.log(orders)
@@ -40,8 +40,8 @@ function renderOrders(orders) {
             .prop("type", "button")
             .addClass("order-ready-button btn btn-primary col-3 col-lg-2")
             .text("Ready")
-            // .attr("click", "updateOrders(order.callNumber)")
-        const li1 = $("<li>")
+            .click({ orderId: order.orderId }, updateOrders)
+        const firstRowForAOrder = $("<li>")
             .addClass("list-group-item order-number-and-ready-button")
             .append(
                 $("<div>")
@@ -49,47 +49,30 @@ function renderOrders(orders) {
                     .append(span, button)
             )
             .appendTo(ul)
-        // add food list
+        // add food list after the first row
         $.each(order.content, function (i, food) {
             $("<li>").addClass("list-group-item").text(food.name).appendTo(ul)
         })
     })
-
 }
 
-// Update 
-async function updateOrders() {
+// Update
+async function updateOrders(e) {
     ;(async () => {
-        
-        const orderId = "fsd1221"
+        const orderId = "order" + e.data.orderId
         const newURL = url + "/update"
         console.log("update order: fetching " + newURL)
         let data = {
-            orderId: orderId
+            orderId: orderId,
         }
-        const res = await postData(newURL, data)
+        const res = await postDataIncomingOrder(newURL, data)
         const j = await res.json()
         console.log(j)
-        // addUpdate(j.order_result)
-    })();
-    
-}
-
-function addUpdate(result) {
-    const container = $(".incoming-order-container")
-    $("<br>").appendTo(container)
-    const div = $("<div>")
-        .appendTo(container)
-    const h2 = $("<h3>")
-        .text("Order Result:")
-        .appendTo(div)
-    const p = $("<p>")
-        .text("" + result)
-        .appendTo(div)
+    })()
 }
 
 // NEW: helper method for posting data
-async function postData(url, data) {
+async function postDataIncomingOrder(url, data) {
     const resp = await fetch(url, {
         method: "POST",
         mode: "cors",
@@ -100,6 +83,6 @@ async function postData(url, data) {
         },
         redirect: "follow",
         body: JSON.stringify(data),
-    });
-    return resp;
+    })
+    return resp
 }
