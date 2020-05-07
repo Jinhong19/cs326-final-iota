@@ -30,7 +30,6 @@ export class Database {
         })()
     }
 
-    // not tested yet, test after router + database integration
     // handle create and update order
     public async putOrderByOrderId(orderId, updateList): Promise<void> {
         let db = this.client.db(this.dbName)
@@ -42,7 +41,22 @@ export class Database {
             { $set: updateList },
             { upsert: true }
         )
-        console.log("result = " + result)
+    }
+
+    // returns an array of at least {orderId: ?, callNumber: ?, content: array}, with ready: false, sort by callNumber
+    public async readOrderByRestaurantId(restaurantId) {
+        let db = this.client.db(this.dbName)
+        let collectionName = "order"
+        let collection = db.collection(collectionName)
+        console.log("mongodb: read order by restaurantId: " + restaurantId)
+        let result = await collection
+            .find({
+                restaurantId: restaurantId,
+                ready: false,
+            })
+            .sort({ callNumber: 1 })
+            .toArray()
+        return result
     }
 
     public async findOneRestaurant(restaurantId: string): Promise<string>{

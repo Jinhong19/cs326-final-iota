@@ -49,7 +49,7 @@ function readOrders() {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            restaurantId = "res123";
+                            restaurantId = "res1";
                             newURL = url + "/read";
                             console.log("read order: fetching with " + newURL);
                             data = {
@@ -76,10 +76,20 @@ function renderOrders(orders) {
     console.log("read order: rendering");
     console.log(orders);
     var container = $(".incoming-order-container");
+    var orderContent = $(".incoming-order-content");
+    if (orderContent.length) {
+        // if there is already a list, clear it
+        orderContent.empty();
+    }
+    else {
+        orderContent = $("<div>")
+            .addClass("incoming-order-content")
+            .appendTo(container);
+    }
     $.each(orders, function (i, order) {
         var div = $("<div>")
             .addClass("one-incoming-order card my-3 rounded shadow-sm")
-            .appendTo(container);
+            .appendTo(orderContent);
         var ul = $("<ul>")
             .addClass("list-group list-group-flush")
             .appendTo(div);
@@ -115,7 +125,7 @@ function updateOrders(e) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            orderId = "order" + e.data.orderId;
+                            orderId = e.data.orderId;
                             newURL = url + "/update";
                             console.log("update order: fetching " + newURL);
                             data = {
@@ -128,6 +138,7 @@ function updateOrders(e) {
                         case 2:
                             j = _a.sent();
                             console.log(j);
+                            readOrders();
                             return [2 /*return*/];
                     }
                 });

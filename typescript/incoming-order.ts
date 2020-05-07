@@ -7,7 +7,7 @@ const url = "http://localhost:8080/orders"
 
 async function readOrders() {
     ;(async () => {
-        const restaurantId = "res123"
+        const restaurantId = "res1"
         const newURL = url + "/read"
         console.log("read order: fetching with " + newURL)
         let data = {
@@ -25,10 +25,19 @@ function renderOrders(orders) {
     console.log("read order: rendering")
     console.log(orders)
     const container = $(".incoming-order-container")
+    let orderContent = $(".incoming-order-content")
+    if (orderContent.length) {
+        // if there is already a list, clear it
+        orderContent.empty()
+    } else {
+        orderContent = $("<div>")
+            .addClass("incoming-order-content")
+            .appendTo(container)
+    }
     $.each(orders, function (i, order) {
         const div = $("<div>")
             .addClass("one-incoming-order card my-3 rounded shadow-sm")
-            .appendTo(container)
+            .appendTo(orderContent)
         const ul = $("<ul>")
             .addClass("list-group list-group-flush")
             .appendTo(div)
@@ -59,7 +68,7 @@ function renderOrders(orders) {
 // Update
 async function updateOrders(e) {
     ;(async () => {
-        const orderId = "order" + e.data.orderId
+        const orderId = e.data.orderId
         const newURL = url + "/update"
         console.log("update order: fetching " + newURL)
         let data = {
@@ -68,6 +77,7 @@ async function updateOrders(e) {
         const res = await postDataIncomingOrder(newURL, data)
         const j = await res.json()
         console.log(j)
+        readOrders()
     })()
 }
 
