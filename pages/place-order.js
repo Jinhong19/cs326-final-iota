@@ -41,22 +41,26 @@ function placeOrderCreate() {
         return __generator(this, function (_a) {
             ;
             (function () { return __awaiter(_this, void 0, void 0, function () {
-                var restaurantId, userId, foodItem, quantity, data, newURL, resp, j;
+                var restaurantId, userId, content, data, newURL, resp, j;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            restaurantId = "fvr123";
-                            userId = "12345";
-                            foodItem = ["food1", "food2"];
-                            quantity = ["1", "2"];
+                            restaurantId = "res1";
+                            userId = "user2";
+                            content = [
+                                {
+                                    name: "Cookie",
+                                    price: 1.34,
+                                    quantity: 3,
+                                },
+                                { name: "Apple", price: 0.12, quantity: 1 },
+                            ];
                             data = {
                                 //restaurantId: "res123",
-                                'restaurantId': restaurantId,
-                                'userId': userId,
-                                'foodItem': foodItem,
-                                'quantity': quantity
+                                restaurantId: restaurantId,
+                                userId: userId,
+                                content: content,
                             };
-                            console.log(urlPlaceOrder);
                             newURL = urlPlaceOrder + "/create";
                             console.log("create order: fetching " + newURL);
                             return [4 /*yield*/, postDataPlaceOrder(newURL, data)];
