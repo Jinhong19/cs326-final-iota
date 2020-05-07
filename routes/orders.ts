@@ -1,6 +1,6 @@
 export class orderRouter {
     public router = require("express").Router()
-    private db 
+    private db
     private orderIdNumber: number
     private callNumber: number
 
@@ -44,43 +44,12 @@ async function createHandler(req, res): Promise<void> {
 // read all the orders for a restaurant
 async function readHandler(req, res): Promise<void> {
     console.log("read order handler")
-    await readOrder(req.body.restaurantId, res)
-}
-
-async function readOrder(restaurantId: string, res): Promise<void> {
-    // should get this from database later, mock content for all restaurantId
-
-    let orders = [
-        {
-            orderId: 34,
-            callNumber: 1,
-            content: [
-                {
-                    name: "Pizza",
-                    price: 3.55,
-                    quantity: 2,
-                },
-                { name: "Ice cream", price: 33.1213, quantity: 1 },
-            ],
-        },
-        {
-            orderId: 66,
-            callNumber: 22,
-            content: [
-                {
-                    name: "Cookie",
-                    price: 1.34,
-                    quantity: 3,
-                },
-                { name: "Apple", price: 0.12, quantity: 1 },
-            ],
-        },
-    ]
+    let restaurantId = req.body.restaurantId
+    let orders = await this.db.readOrderByRestaurantId(restaurantId)
 
     let output = {
         result: "success",
         restaurantId: restaurantId,
-        // orders: this.orders,
         orders: orders,
     }
     res.write(JSON.stringify(output))
@@ -91,8 +60,9 @@ async function readOrder(restaurantId: string, res): Promise<void> {
 async function updateHandler(req, res): Promise<void> {
     console.log("update order handler")
     const orderId = req.body.orderId
+
     // change ready field in database with order id
-    this.db.putOrderByOrderId(orderId, {ready: true})
+    this.db.putOrderByOrderId(orderId, { ready: true })
 
     let output = {
         result: "success",
