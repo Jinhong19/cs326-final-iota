@@ -13,6 +13,7 @@ export class restaurantRouter {
 }
 
 async function readRestaurant(restaurantName: string, res) {
+    
     //mock data, testing purposes only
     let menu = [
         {
@@ -36,6 +37,16 @@ async function readHandler(req, res): Promise<void> {
 }
 
 async function createHandler(req, res): Promise<void> {
+    const restaurantId = this.restaurantId
+
+    let input = {
+        name: this.name
+    }
+
+    let data = Object.assign(input, req.body)
+
+    this.db.putOrderByOrderId(restaurantId,data)
+    
     // create response
     let output = {
         result: "success",
