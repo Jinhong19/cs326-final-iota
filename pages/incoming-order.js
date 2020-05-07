@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 $(document).ready(function () {
     console.log("ready!");
     readOrders();
-    updateOrders();
 });
 var url = "http://localhost:8080/orders";
 function readOrders() {
@@ -52,11 +51,11 @@ function readOrders() {
                         case 0:
                             restaurantId = "res123";
                             newURL = url + "/read";
-                            console.log("read order: fetching " + newURL);
+                            console.log("read order: fetching with " + newURL);
                             data = {
-                                restaurantId: restaurantId
+                                restaurantId: restaurantId,
                             };
-                            return [4 /*yield*/, postData(newURL, data)];
+                            return [4 /*yield*/, postDataIncomingOrder(newURL, data)];
                         case 1:
                             res = _a.sent();
                             return [4 /*yield*/, res.json()];
@@ -72,6 +71,7 @@ function readOrders() {
         });
     });
 }
+// need order to be array of {orderId: ?, callNumber: ?, content: array}
 function renderOrders(orders) {
     console.log("read order: rendering");
     console.log(orders);
@@ -90,22 +90,22 @@ function renderOrders(orders) {
         var button = $("<button>")
             .prop("type", "button")
             .addClass("order-ready-button btn btn-primary col-3 col-lg-2")
-            .text("Ready");
-        // .attr("click", "updateOrders(order.callNumber)")
-        var li1 = $("<li>")
+            .text("Ready")
+            .click({ orderId: order.orderId }, updateOrders);
+        var firstRowForAOrder = $("<li>")
             .addClass("list-group-item order-number-and-ready-button")
             .append($("<div>")
             .addClass("row align-items-center justify-content-around")
             .append(span, button))
             .appendTo(ul);
-        // add food list
+        // add food list after the first row
         $.each(order.content, function (i, food) {
             $("<li>").addClass("list-group-item").text(food.name).appendTo(ul);
         });
     });
 }
-// Update 
-function updateOrders() {
+// Update
+function updateOrders(e) {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
         return __generator(this, function (_a) {
@@ -115,13 +115,13 @@ function updateOrders() {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            orderId = "fsd1221";
+                            orderId = "order" + e.data.orderId;
                             newURL = url + "/update";
                             console.log("update order: fetching " + newURL);
                             data = {
-                                orderId: orderId
+                                orderId: orderId,
                             };
-                            return [4 /*yield*/, postData(newURL, data)];
+                            return [4 /*yield*/, postDataIncomingOrder(newURL, data)];
                         case 1:
                             res = _a.sent();
                             return [4 /*yield*/, res.json()];
@@ -136,20 +136,8 @@ function updateOrders() {
         });
     });
 }
-function addUpdate(result) {
-    var container = $(".incoming-order-container");
-    $("<br>").appendTo(container);
-    var div = $("<div>")
-        .appendTo(container);
-    var h2 = $("<h3>")
-        .text("Order Result:")
-        .appendTo(div);
-    var p = $("<p>")
-        .text("" + result)
-        .appendTo(div);
-}
 // NEW: helper method for posting data
-function postData(url, data) {
+function postDataIncomingOrder(url, data) {
     return __awaiter(this, void 0, void 0, function () {
         var resp;
         return __generator(this, function (_a) {
