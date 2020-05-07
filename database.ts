@@ -59,18 +59,19 @@ export class Database {
         return result
     }
 
-    public async findOneRestaurant(restaurantId: string): Promise<string>{
-        let result = await this.client.db(this.dbName).collection("restaurant").findOne({restaurantId: String});
-        console.log("get: returned " + JSON.stringify(result))
-        if (result){
-            console.log(`No listings found with the name '${restaurantId}'`);
-            console.log(result);
-            return result.value
-        }else{
-            console.log('No results found');
+    public async findOneRestaurant(restaurantId: string): Promise<string> {
+        let result = await this.client
+            .db(this.dbName)
+            .collection("restaurant")
+            .findOne({ restaurantId: String })
+        console.log("mongodb read menu returned: " + JSON.stringify(result))
+        if (result) {
+            console.log(`No listings found with the res Id '${restaurantId}'`)
+            return result
+        } else {
+            console.log("No results found")
             return null
         }
-            
     }
 
     // public async get(key: string): Promise<string> {
