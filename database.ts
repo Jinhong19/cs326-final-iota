@@ -45,19 +45,19 @@ export class Database {
         console.log("result = " + result)
     }
 
-    public async findOneRestaurant(restaurantId, resName){
-        let result = await this.client.db(this.dbName).collection("restaurant").findOne({restaurantId: resName});
-
+    public async findOneRestaurant(restaurantId: string): Promise<string>{
+        let result = await this.client.db(this.dbName).collection("restaurant").findOne({restaurantId: String});
+        console.log("get: returned " + JSON.stringify(result))
         if (result){
-            console.log(`No listings found with the name '${resName}'`);
+            console.log(`No listings found with the name '${restaurantId}'`);
             console.log(result);
+            return result.value
         }else{
             console.log('No results found');
+            return null
         }
             
     }
-
-    
 
     // public async get(key: string): Promise<string> {
     //     let db = this.client.db(this.dbName) // this.level(this.dbFile);
@@ -69,26 +69,6 @@ export class Database {
     //         return result.value
     //     } else {
     //         return null
-    //     }
-    // }
-
-    // public async del(key: string): Promise<void> {
-    //     let db = this.client.db(this.dbName)
-    //     let collection = db.collection(this.collectionName)
-    //     console.log("delete: key = " + key)
-    //     let result = await collection.deleteOne({ name: key })
-    //     console.log("result = " + result)
-    //     // await this.db.del(key);
-    // }
-
-    // public async isFound(key: string): Promise<boolean> {
-    //     console.log("isFound: key = " + key)
-    //     let v = await this.get(key)
-    //     console.log("is found result = " + v)
-    //     if (v === null) {
-    //         return false
-    //     } else {
-    //         return true
     //     }
     // }
 }
