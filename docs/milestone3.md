@@ -1,17 +1,40 @@
 # database documentation
 
-## restaurant collection
-
+## A Restaurant Document
+```
 {
-    _id: ObjectId("5eb35f68ceab9053c0b236b2")
+    _id: <ObjectId>,
     restaurantId: String,
     name: String,
-    menu: Array{
-        item0: object{
-            name: String
-            price: Double
-        }...
-    }
+    menu: Array
+    [
+        item: Object 
+        {
+            name: String,
+            price: Double,
+        }, ...
+    ]
 }
+```
+
+## An Order Document
+```
+{  
+    _id: <ObjectId>,  
+    orderId: String,  
+    restaurantId: String,  
+    userId: String,  
+    callNumber: Integer,  
+    ready: Boolean,  
+    content: Array  
+    [  
+        item: Object 
+        {  
+            name: String,  
+            quantity: String  
+        }, ...  
+    ]  
+}  
+```
 
 # Division of Labor
