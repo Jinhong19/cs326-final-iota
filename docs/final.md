@@ -38,13 +38,15 @@ Dongwei Wu (DonnyWu)
 
 Client Side:
 
-Login page: (http://localhost:8080/)  
+Login page: (http://localhost:8080/)
+
+sign-up: : (http://localhost:8080/sign-up.html)
 
 Place Order page: (http://localhost:8080/place-order.html)  
 
 Confirm Order page: (http://localhost:8080/confirm-order.html)  
 
-Business Side:
+Business Side
 
 Incoming Order page: (http://localhost:8080/incoming-order.html)  
 
