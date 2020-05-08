@@ -39,3 +39,5 @@
 
 # Division of Labor
 Jinhong Gan: set up mongodb and connected it with routers, implemented create, update, and read order funtionality from frontend to database, helped with rendering restaurant menu.
+
+Dongwei Wu: Created restaurant collection on mongoDB for application to use, implemented read function (findOneRestaurant()) for restaurant.

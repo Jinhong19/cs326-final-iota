@@ -73,17 +73,4 @@ export class Database {
             return null
         }
     }
-
-    // public async get(key: string): Promise<string> {
-    //     let db = this.client.db(this.dbName) // this.level(this.dbFile);
-    //     let collection = db.collection(this.collectionName)
-    //     console.log("get: key = " + key)
-    //     let result = await collection.findOne({ name: key })
-    //     console.log("get: returned " + JSON.stringify(result))
-    //     if (result) {
-    //         return result.value
-    //     } else {
-    //         return null
-    //     }
-    // }
 }
