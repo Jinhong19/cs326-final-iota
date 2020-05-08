@@ -1,13 +1,13 @@
 # api documentation
 
-## Get Restaurants
+## Get Restaurant Menu
 
-GET: /restaurants?name=\<Value\>
+POST: /restaurants/read
 
 Request Data 
-| key | description  | example |
+| key | type | description
 |---|---|---|
-| name | (Required) Name of a restaurant | localhost:8080/restaurants?name=pizza%20rest |
+| restaurantId | string | Id of a restaurant
 
 Response Data
 | key  | type | description |
@@ -21,7 +21,7 @@ Response Data
 
 ## Create orders
 
-POST: /orders
+POST: /orders/create
 
 Request Data  
 | key  | type  | description  |
@@ -34,16 +34,17 @@ Response
 | key  | type  | description  |
 |---|---|---|
 | result  | string  | "success" or "error"  |
+| data | object | data stored in database, including orderId and callNumber |
 
 ## Get order
 Get preparing orders information for a restaurant
 
-GET: /orders?restaurantId=\<value\>
+POST: /orders/read
 
-Parameter  
-| key  | type  | description  |  example  |
-|---|---|---|---|
-| restaurantId  | string  | id of the restaurant for this order  | localhost:8080/orders?restaurantId=id123123  |
+Request Data   
+| key  | type  | description  |
+|---|---|---|
+| restaurantId  | string  | id of the restaurant for this order |
 
 Response  
 | key  | type  | description  |
@@ -51,17 +52,17 @@ Response
 | result  | string  | "success" or "error"  |
 | restaurantId  | string  | id of the restaurant for this order  |
 | orderId  | string  | id of the order  |
-| callNumber| string  | Number called for customer to pick up order  |
+| callNumber | string  | Number called for customer to pick up order  |
 | content  | array  | array of food items  |
 
 ## Update order
+Update an order when it is ready
+POST: /orders/update
 
-PUT: /orders?orderId=<value>
-
-Parameter  
-| key  | type  | description  |  example  |
-|---|---|---|---|
-| orderId  | string  | id of the order  | localhost:8080/create?id=fsd1221  |
+Request Data   
+| key  | type  | description  |
+|---|---|---|
+| orderId  | string  | id of the order  |
 
 Response  
 | key  | type  | description  |
