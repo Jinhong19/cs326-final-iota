@@ -34,7 +34,59 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+$(document).ready(function () {
+    console.log("ready!");
+    readRestaurantMenu();
+});
 var urlPlaceOrder = "http://localhost:8080/orders";
+var urlReadMenu = "http://localhost:8080/restaurants";
+function readRestaurantMenu() {
+    return __awaiter(this, void 0, void 0, function () {
+        var _this = this;
+        return __generator(this, function (_a) {
+            ;
+            (function () { return __awaiter(_this, void 0, void 0, function () {
+                var restaurantId, newURL, data, res, j;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            restaurantId = "res1";
+                            newURL = urlReadMenu + "/read";
+                            console.log("read restaurants: fetching with " + newURL);
+                            data = {
+                                restaurantId: restaurantId,
+                            };
+                            return [4 /*yield*/, postDataPlaceOrder(newURL, data)];
+                        case 1:
+                            res = _a.sent();
+                            return [4 /*yield*/, res.json()];
+                        case 2:
+                            j = _a.sent();
+                            console.log(j);
+                            // addRestaurantName(j.data.name)
+                            renderMenu(j.data.menu);
+                            return [2 /*return*/];
+                    }
+                });
+            }); })();
+            return [2 /*return*/];
+        });
+    });
+}
+function renderMenu(menu) {
+    var tb = $(".menu-items-table-body");
+    $.each(menu, function (i, item) {
+        var tdInput = $("<td>").append($("<input>", {
+            type: "number",
+            class: "menu-item-quantity w-50 p-0 text-center",
+            placeholder: "0",
+        }));
+        var tdName = $("<td>").addClass("menu-item-name").text(item.name);
+        var tdPrice = $("<td>").text(item.price);
+        var tr = $("<tr>").append(tdInput, tdName, tdPrice);
+        tr.appendTo(tb);
+    });
+}
 function placeOrderCreate() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
