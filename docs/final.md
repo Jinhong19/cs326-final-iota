@@ -10,11 +10,11 @@ Liner
 Spring 2020
 
 ## Overview:
-The idea of our application Liner generally revolves around the idea of efficiently picking up food. We live in a very busy world where time is everything, we want to help people get some time back by having them avoid lines. This app essentially lets our users order food based on venue and let them choose off the menu for pick up. The app will return to the user an estimate of when the food will be done, and when it’s done it will notify our user. This will in turn not only save our user’s time but also help the food venue from overcrowding customers.
+The basis of liner is a light weight application that will handle our user's pickup needs, without the hassle of waiting in line. The application will allow our users to choose the restaurant they want to order from, and the menu from that restaurant will show up. From the menu the user will choose the item and the amount that they want. Once the user submits the order from the client side it will create an order, which will then be recieved by the restaurant. Once the restaurant is done with the order, they will then update the status of the order to be ready, letting the customer know that their food is ready for pick up.
 
-There are similar applications out there such as Grubhub and other delivery services, but they mainly target restaurants. Our app on the other hand targets “fast-food” places, such as McDonalds, Baby berk, and other similarly established venues.
+The reason we decided to create Liner was because we felt that the waiting in line can waste a lot of time for our customers. As well as slowing down businesses for restaurants. However with Liner, customers can order ahead using our application and just pick up when they arrive at the restaurant. This method of placing take out orders is much more effective than phone calling as it avoids human error as well as being able to directly create the order without having someone manually input the order into their system. It also help restaurants, as they can prepare ordered item ahead of time without the stress of handling all the orders at once.
 
-We focus on allowing customers to skip the lines when they place an order, and only for in-store pickup. Even though self-ordering kiosks in some restaurants, customers might still have to wait in a line to place an order. Our website therefore allows customers to avoid waiting in any line.
+There are application out there with similar functionalities out there such as Doordash and Instacart. However, our service cater more towards "smaller/school establishments" such Roots cafe, baby berk, bubble tea shops, etc. This application was created to serve a niche market and not as a competitor application.
 
 ## Team Members:
 Jinhong Gan (Jinhong19)
@@ -24,82 +24,24 @@ Rudra Guin (rguin26)
 Dongwei Wu (DonnyWu)
 
 ## APIs:
-### Get Restaurants
-GET: /restaurants?name=\<Value\>
 
-Request Data 
-| key | description  | example |
-|---|---|---|
-| name | (Required) Name of a restaurant | localhost:8080/restaurants?name=pizza%20rest |
-
-Response Data
-| key  | type | description |
-|---|---|---|
-| result | string | The type of operation status: one of "success" or "error"|
-| restaurantId | string | The unique id of the restaurant: string |
-| restaurantName | string | The name of the restaurant |
-| menu | array | the menu of this restaurant, format: [{name: food1, price: 2}, …. ] |
-
-
-
-### Create orders
-POST: /orders
-
-Request Data  
-| key  | type  | description  |
-|---|---|---|
-| restaurantId  | string  | id of the restaurant for this order  |
-| userId  | string  | id of the user who place this order  |
-| content  | array  | array of food items  |
-
-Response  
-| key  | type  | description  |
-|---|---|---|
-| result  | string  | "success" or "error"  |
-
-### Get order
-Get preparing orders information for a restaurant
-
-GET: /orders?restaurantId=\<value\>
-
-Parameter  
-| key  | type  | description  |  example  |
-|---|---|---|---|
-| restaurantId  | string  | id of the restaurant for this order  | localhost:8080/orders?restaurantId=id123123  |
-
-Response  
-| key  | type  | description  |
-|---|---|---|
-| result  | string  | "success" or "error"  |
-| restaurantId  | string  | id of the restaurant for this order  |
-| orderId  | string  | id of the order  |
-| callNumber| string  | Number called for customer to pick up order  |
-| content  | array  | array of food items  |
-
-### Update order
-PUT: /orders?orderId=<value>
-
-Parameter  
-| key  | type  | description  |  example  |
-|---|---|---|---|
-| orderId  | string  | id of the order  | localhost:8080/create?id=fsd1221  |
-
-Response  
-| key  | type  | description  |
-|---|---|---|
-| result  | string  | "success" or "error"  |
+![Milestone 2](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## Database:
 
+![Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## URL Routes/Mappings:
 
 
 ## Authentication/Authorization:
 
+N/A
 
 ## Division of Labor:
 
 
 ## Conclusion:
+
+Coming into this project our team had varied amount of experiences in web programming. However, we all learned how to create the basic layout of a HTML page using bootstrap/ CSS. We also learned how to use to typescript/ javascript to handle our backend and front functionalities. The hardest part of the project was creating routes for each of our pages, as well as creating a database to interact with our web application.
 
