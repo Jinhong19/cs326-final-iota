@@ -110,7 +110,10 @@ function renderOrders(orders) {
             .appendTo(ul);
         // add food list after the first row
         $.each(order.content, function (i, food) {
-            $("<li>").addClass("list-group-item").text(food.name).appendTo(ul);
+            $("<li>")
+                .addClass("list-group-item")
+                .text(food.quantity + " " + food.name)
+                .appendTo(ul);
         });
     });
 }
