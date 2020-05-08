@@ -61,7 +61,7 @@ POST: /orders/update
 
 Request Data   
 | key  | type  | description  |
-|---|---|---|---|
+|---|---|---|
 | orderId  | string  | id of the order  |
 
 Response  
