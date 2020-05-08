@@ -32,7 +32,7 @@ Dongwei Wu (DonnyWu)
 
 ## Database:
 
-[Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+[Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone3.md)
 
 ## URL Routes/Mappings:
 
@@ -57,7 +57,9 @@ N/A
 ## Division of Labor:
 Jinhong Gan: Implemented incoming order page and login(index.html) page, set up server and database, worked with mongodb atlas, implemented read, update, and create order functionalities, worked on rendering restaurant menu.
 
-Note: For some reason, whenever I modified a document, I would delete the document and then add it again. Git blame does not reflect the contribution for some files. Please look at Git History (Rudra).
+Rudra Guin: Worked on update order basic functionality, created and modified mongoDB collection documents, and assisted for rendering menu code.
+
+Note: For some reason, whenever I modified a document, it showed that I would delete the document and then add it again. Git blame does not reflect the contribution for some files. Please look at Git History (--Rudra).
 
 ## Conclusion:
 
