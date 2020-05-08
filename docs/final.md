@@ -57,6 +57,8 @@ N/A
 ## Division of Labor:
 Jinhong Gan: Implemented incoming order page and login(index.html) page, set up server and database, worked with mongodb atlas, implemented read, update, and create order functionalities, worked on rendering restaurant menu.
 
+Note: For some reason, whenever I modified a document, I would delete the document and then add it again. Git blame does not reflect the contribution for some files. Please look at Git History (Rudra).
+
 ## Conclusion:
 
 Coming into this project our team had varied amount of experiences in web programming. However, we all learned how to create the basic layout of a HTML page using bootstrap/ CSS. We also learned how to use to typescript/ javascript to handle our backend and front functionalities. The hardest part of the project was creating routes for each of our pages, as well as creating a database to interact with our web application.
