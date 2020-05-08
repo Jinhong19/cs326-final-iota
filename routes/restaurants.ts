@@ -4,7 +4,7 @@ export class restaurantRouter {
 
     constructor(db) {
         this.db = db
-        this.router.route("/read").get(readHandler.bind(this))
+        this.router.route("/read").post(readHandler.bind(this))
     }
 }
 
@@ -12,7 +12,7 @@ async function readHandler(req, res): Promise<void> {
     console.log("getting restaurant")
     let resId = await req.body.restaurantId
 
-    let data = this.db.findOneRestaurant(resId)
+    let data = await this.db.findOneRestaurant(resId)
 
     let output = {
         result: "success",
