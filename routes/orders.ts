@@ -6,7 +6,7 @@ export class orderRouter {
 
     constructor(db) {
         this.db = db
-        this.callNumber = 0
+        this.callNumber = 1
         this.orderIdNumber = 0
         this.router.route("/create").post(createHandler.bind(this))
         this.router.route("/read").post(readHandler.bind(this))
