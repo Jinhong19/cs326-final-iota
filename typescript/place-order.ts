@@ -43,13 +43,22 @@ async function placeOrderCreate() {
     ;(async () => {
         const restaurantId = "res1"
         const userId = "user2"
-        const content = [
-            {
-                name: "Cookie",
-                quantity: 3,
-            },
-            { name: "Apple", quantity: 1 },
-        ]
+        const content = []
+        $(".menu-items-table-body > tr").each(function () {
+            let quan = $(this)
+                .children("td:first")
+                .children(".menu-item-quantity")
+                .val()
+            let name = $(this).children(".menu-item-name").text()
+            if (quan > 0) {
+                console.log("add to order: " + quan + " " + name)
+                let item = {
+                    name: name,
+                    quantity: quan
+                }
+                content.push(item)
+            }
+        })
         // pass in restaurantId, userId, and content
         let data = {
             restaurantId: restaurantId,

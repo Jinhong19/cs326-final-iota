@@ -99,13 +99,22 @@ function placeOrderCreate() {
                         case 0:
                             restaurantId = "res1";
                             userId = "user2";
-                            content = [
-                                {
-                                    name: "Cookie",
-                                    quantity: 3,
-                                },
-                                { name: "Apple", quantity: 1 },
-                            ];
+                            content = [];
+                            $(".menu-items-table-body > tr").each(function () {
+                                var quan = $(this)
+                                    .children("td:first")
+                                    .children(".menu-item-quantity")
+                                    .val();
+                                var name = $(this).children(".menu-item-name").text();
+                                if (quan > 0) {
+                                    console.log("add to order: " + quan + " " + name);
+                                    var item = {
+                                        name: name,
+                                        quantity: quan
+                                    };
+                                    content.push(item);
+                                }
+                            });
                             data = {
                                 restaurantId: restaurantId,
                                 userId: userId,
