@@ -73,10 +73,10 @@ Get order: mock data created in back end (routes/order.ts), fetched with typescr
 ![read order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/read_order.png)
 
 Place order: Currently using static data from place-order.ts. It will be using these data to create an order for the user, Once the user clicks the button, it will give a notfication to the user that their order is ready through jquery.
-![read order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/place_order_interface.PNG)
+![Place order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/place_order_interface.PNG)
 
 Update order: Mock data representing the success of an order, currently using static data from update_orders.ts. It will be using this in the backend to verify that an order was successfully placed and received by a restaurant user.
-![read order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/update_order.png)
+![Update order screenshot](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/images/update_order.png)
 
 # Division of Labor
 Jinhong Gan - Set up server and router, implemented create and get order api in routes/orders.ts, implemented typescript for geting order in frontend in incoming-order.ts, created api documentation for read restaurant, create, read, and update orders, wrote setup.md/readme.md
