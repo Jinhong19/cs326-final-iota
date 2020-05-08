@@ -23,13 +23,16 @@ Rudra Guin (rguin26)
 
 Dongwei Wu (DonnyWu)
 
+## User Interface:
+[Milestone 1](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone1.md)
+
 ## APIs:
 
-(https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+[Milestone 2](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## Database:
 
-(https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+[Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## URL Routes/Mappings:
 
@@ -50,7 +53,7 @@ Incoming Order page: (http://localhost:8080/incoming-order.html)
 N/A
 
 ## Division of Labor:
-
+Jinhong Gan: Implemented incoming order page and login(index.html) page, set up server and database, worked with mongodb atlas, implemented read, update, and create order functionalities, worked on rendering restaurant menu.
 
 ## Conclusion:
 
