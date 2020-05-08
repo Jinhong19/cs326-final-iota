@@ -56,7 +56,7 @@ Response
 | content  | array  | array of food items  |
 
 ## Update order
-Update an order when it is ready
+Update an order when it is ready  
 POST: /orders/update
 
 Request Data   

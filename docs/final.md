@@ -32,7 +32,7 @@ Dongwei Wu (DonnyWu)
 
 ## Database:
 
-[Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+[Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone3.md)
 
 ## URL Routes/Mappings:
 
