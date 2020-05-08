@@ -25,14 +25,25 @@ Dongwei Wu (DonnyWu)
 
 ## APIs:
 
-![Milestone 2](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+(https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## Database:
 
-![Milestone 3](https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
+(https://github.com/Jinhong19/cs326-final-iota/blob/master/docs/milestone2.md)
 
 ## URL Routes/Mappings:
 
+Client Side:
+
+Login page: (http://localhost:8080/)  
+
+Place Order page: (http://localhost:8080/place-order.html)  
+
+Confirm Order page: (http://localhost:8080/confirm-order.html)  
+
+Business Side:
+
+Incoming Order page: (http://localhost:8080/incoming-order.html)  
 
 ## Authentication/Authorization:
 
