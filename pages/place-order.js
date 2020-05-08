@@ -129,6 +129,7 @@ function placeOrderCreate() {
                         case 2:
                             j = _a.sent();
                             console.log(j);
+                            confirm(j.callNumber);
                             return [2 /*return*/];
                     }
                 });
@@ -136,6 +137,10 @@ function placeOrderCreate() {
             return [2 /*return*/];
         });
     });
+}
+function confirm(callNumber) {
+    location.href = "http://localhost:8080/confirm-order.html";
+    localStorage.setItem('callNumber', callNumber);
 }
 function postDataPlaceOrder(url, data) {
     return __awaiter(this, void 0, void 0, function () {

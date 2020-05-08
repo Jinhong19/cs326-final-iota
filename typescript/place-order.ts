@@ -70,7 +70,13 @@ async function placeOrderCreate() {
         const resp = await postDataPlaceOrder(newURL, data)
         const j = await resp.json()
         console.log(j)
+        confirm(j.callNumber)
     })()
+}
+
+function confirm(callNumber){
+    location.href = "http://localhost:8080/confirm-order.html"
+    localStorage.setItem('callNumber', callNumber);
 }
 
 async function postDataPlaceOrder(url, data) {
