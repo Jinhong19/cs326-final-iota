@@ -44,7 +44,9 @@ sign-up: : (http://localhost:8080/sign-up.html)
 
 Place Order page: (http://localhost:8080/place-order.html)  
 
-Confirm Order page: (http://localhost:8080/confirm-order.html)  
+Confirm Order page: (http://localhost:8080/confirm-order.html)
+
+
 
 Business Side
 
@@ -57,9 +59,13 @@ N/A
 ## Division of Labor:
 Jinhong Gan: Implemented incoming order page and login(index.html) page, set up server and database, worked with mongodb atlas, implemented read, update, and create order functionalities, worked on rendering restaurant menu.
 
+Dongwei Wu: : Implemented sign-up.html and checkout.html pages, implemented readRestaurant on restaurant.ts and CRUD function for when creating an order. Created restaurant mongoDB collection for application to use and implemented findOneRestaurant function.
+
 Rudra Guin: Worked on update order basic functionality, created and modified mongoDB collection documents, and assisted for rendering menu code.
 
-Note: For some reason, whenever I modified a document, it showed that I would delete the document and then add it again. Git blame does not reflect the contribution for some files. Please look at Git History (--Rudra).
+*Note: The Commits number and line changes under my username are not accurate because I had an username issue and I had change my username from 'Donny Wu' to 'DonnyWu'. So commits under 'Donny Wu' are not being counted towards my new Username 'DonnyWu'. Please refer to Commit history to see previous commit made by Username 'Donny Wu'. Thank you. - Dongwei Wu
+
+*Note: For some reason, whenever I modified a document, it showed that I would delete the document and then add it again. Git blame does not reflect the contribution for some files. Please look at Git History (--Rudra).
 
 ## Conclusion:
 
